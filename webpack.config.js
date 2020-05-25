@@ -80,26 +80,5 @@ module.exports = {
     devServer: {
         contentBase: './dist',
         port: 3001,
-        /* proxy: {
-            '/spApi/**': {
-                target: 'http://sp.online.umersoft.com:8910/shangdong-skin',
-                secure: false, // 接受 运行在 https 上的服务
-                changeOrigin: true
-            }
-        } */
-        proxy: {
-            '/spApi/**': {
-                target: 'http://sp.online.umersoft.com:8910/shangdong-skin',
-                pathRewrite: {'^/spApi': ''},
-                secure: false, // 接受 运行在 https 上的服务
-                changeOrigin: true
-            },
-            '/umerApi/**': {
-                target: 'https://api.umer.com.cn/healthchat',
-                pathRewrite: {'^/umerApi': ''},
-                secure: false, // 接受 运行在 https 上的服务
-                changeOrigin: true
-            }
-        }
     }
 }

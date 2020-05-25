@@ -6,10 +6,9 @@ exports.testApi = async (req,res) => {
 }
 exports.testApiUmer = async (req,res) => {
     let data = await request.post({
-        url: 'https://api.umer.com.cn/healthchat/wechat/getDoctorPsnInfo.do',
+        url: 'https://xxx',
         form: {
-            "token": 'umer0518',
-            "umerId": '10866048'
+            
         }
     })
     console.log('testApiUmer-data:',data)
