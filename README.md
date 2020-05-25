@@ -10,9 +10,9 @@ react+webpack+express
 
 ```Bash
 npm init //初始化
-npm run start:app //开发环境运行，该运行方式是express做web服务
+npm run start:app //开发环境运行，该运行方式是express作web服务
 npm run build //打包
-npm run start:app:prod //生产环境运行
-npm start //生产环境运行，该运行方式是webpack-dev-server做web服务
+npm run start:app:prod //生产环境运行 express作web服务
+npm start //生产环境运行，该运行方式是webpack-dev-server作web服务
 ```
 
