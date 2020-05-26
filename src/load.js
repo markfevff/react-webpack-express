@@ -3,7 +3,7 @@ import Loadable from 'react-loadable'
 
 function Loading(props) {
   console.log('Loading-props:',props)
-    return <div>加载中...</div>
+    return <div>加载中.....</div>
 }
 
 const CompontentWrap = component => {
