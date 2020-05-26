@@ -22,8 +22,8 @@ const initHMR = async (app) => {
             poll:true
         },
     }));
-    var webpackHotMiddleware=require('webpack-hot-middleware');
-    await app.use(webpackHotMiddleware(compiler)); 
+    /* var webpackHotMiddleware=require('webpack-hot-middleware');
+    await app.use(webpackHotMiddleware(compiler));  */
 }
 const listen = (app) => {
     const server = app.listen(config.PORT);
@@ -35,6 +35,8 @@ const create = async () => {
     await initHMR(app);
     app.set('views', path.join(__dirname, 'dist'));    //html文件加载路径
     app.use(express.static(path.join(__dirname, 'dist')));
+    app.use(express.json()) // for parsing application/json
+    app.use(express.urlencoded({ extended: true })) // for parsing application/x-www-form-urlencoded
     app.get('*', function (request, response){
         console.log('get-request.path:',request.path)
         response.sendFile(path.resolve(__dirname, 'dist', 'index.html'))

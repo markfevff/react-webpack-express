@@ -7,7 +7,7 @@ import store from '@/store/index'
 import {updateUserInfoId} from '@/store/actions/user'
 import avatar from '@/assets/images/avatar.png'
 import beijing from '@/assets/images/beijing.png'
-import '@/home.scss';
+import './home.scss';
 class Home extends Component {
     constructor(props) {
         super(props);
@@ -22,7 +22,7 @@ class Home extends Component {
         console.log('ss')
     }
     componentDidMount() {
-        console.log('home-componentDidMount')
+        console.log('home-componentDidMount:',this.props.location)
     }
     onmousedown(e) {
         // console.log('onmousedown-e:',e.target.style);
@@ -57,8 +57,9 @@ class Home extends Component {
         })
     }
     localApi() {
-        // axios.post('/spApi/api/web/login/status/view',qs.stringify({
-        axios.post('/testapi',{
+        axios.post('/testapi',qs.stringify({
+            id: 1,
+        }),{
             headers: {'Content-Type': 'application/x-www-form-urlencoded'}
         })
         .then(function (response) {
@@ -68,8 +69,18 @@ class Home extends Component {
             console.log('localApi-error',error);
         });
     }
+    localJsonApi() {
+        axios.post('/testapijson',{
+            id: 1,
+        })
+        .then(function (response) {
+            console.log('localApi-response',response);
+        })
+        .catch(function (error) {
+            console.log('localApi-error',error);
+        });
+    }
     localUmerApi() {
-        // axios.post('/spApi/api/web/login/status/view',qs.stringify({
         axios.post('/testUmerapi',{
             headers: {'Content-Type': 'application/x-www-form-urlencoded'}
         })
@@ -105,6 +116,7 @@ class Home extends Component {
                 <img src={beijing} alt=""/>
                 <div className="bg"></div>
                 <Button onClick={this.localApi.bind(this)}>本地接口</Button>
+                <Button onClick={this.localJsonApi.bind(this)}>本地接口json</Button>
                 <Button onClick={this.localUmerApi.bind(this)}>本地接口</Button>
             </div> 
         )

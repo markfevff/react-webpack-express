@@ -1,6 +1,5 @@
 import React,{Component} from 'react';
-import '@/user.scss';
-// import styles from '@/user.scss'
+import './user.scss';
 class User extends Component {
     render() {
         return(

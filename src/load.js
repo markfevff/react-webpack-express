@@ -6,9 +6,14 @@ function Loading(props) {
     return <div>...加载中</div>
 }
 
+const CompontentWrap = component => {
+  // console.log('component:',component)
+  return component;
+}
+
 const LoadableComponent = component => {
   return Loadable({
-    loader: component,
+    loader: CompontentWrap(component),
     loading: Loading,
     delay: 1000
   })

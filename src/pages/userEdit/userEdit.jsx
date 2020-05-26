@@ -1,7 +1,7 @@
 import React,{Component} from 'react';
 class UserEdit extends Component {
     componentDidMount() {
-        console.log('user-componentDidMount')
+        console.log('useredit-componentDidMount:',this.props.location)
     }
     render() {
         return(
