@@ -18,7 +18,8 @@
         "setInterval": "readonly",
         "window": "readonly",
         "document": "readonly",
-        "URLSearchParams": "readonly"
+        "URLSearchParams": "readonly",
+        "location": "readonly"
     },
     "rules": {
         "no-undef": "error",
