@@ -14,7 +14,7 @@ exports.testApiJson = async (req,res) => {
     console.log('id:',id)
     let delay = ms => new Promise(resolve => setTimeout(resolve,ms))
     await delay(2000)
-    return res.send('testApijson')
+    return res.send('testApijson');
 }
 exports.testApiUmer = async (req,res) => {
     let data = await request.post({
@@ -25,4 +25,16 @@ exports.testApiUmer = async (req,res) => {
     })
     console.log('testApiUmer-data:',data)
     return res.send(data)
+}
+exports.validateToken = function(req,res,next){
+    console.log('validateToken')
+    var signature = req.query.signature;
+    var timestamp = req.query.timestamp;
+    var nonce = req.query.nonce;
+    var echostr = req.query.echostr;
+    console.log('validateToken-req.query:',req.query)
+    return res.send(echostr)
+}
+exports.web = function(req,res) {
+    return res.send('web')
 }

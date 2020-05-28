@@ -1,4 +1,4 @@
-import LoadableComponent from '@/load';
+import LoadableComponent from '@/hoc/loadableComponent';
 
 const Home = LoadableComponent(() => import('@/pages/home/home'));
 const User = LoadableComponent(() => import('@/pages/user/user'));

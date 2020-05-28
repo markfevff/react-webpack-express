@@ -27,7 +27,7 @@ class Home extends Component {
     onmousedown(e) {
         // console.log('onmousedown-e:',e.target.style);
         const {left,top} = e.target.style;
-        // console.log('left:',left,',top:',top,',clientX:',e.clientX)
+        // console.log('left:',left,',top:',top,sss',clientX:',e.clientX)
         this.setState({
             left: parseFloat(left),
             top: parseFloat(top),
@@ -81,7 +81,7 @@ class Home extends Component {
         });
     }
     localUmerApi() {
-        axios.post('/testUmerapi',{
+        axios.get('/web',{
             headers: {'Content-Type': 'application/x-www-form-urlencoded'}
         })
         .then(function (response) {
@@ -112,7 +112,9 @@ class Home extends Component {
                     home
                 </div> */}
                 <div>home</div>
-                <img src={avatar} alt=""/>
+                <img src={avatar} alt="" style={{
+                    width: '100px'
+                }}/>
                 <img src={beijing} alt=""/>
                 <div className="bg"></div>
                 <Button onClick={this.localApi.bind(this)}>本地接口</Button>

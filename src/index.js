@@ -1,5 +1,7 @@
+import 'amfe-flexible';
 import React,{Component} from 'react';
 import ReactDOM from 'react-dom';
+import VConsole from 'vconsole/dist/vconsole.min.js'
 import { Provider } from 'react-redux';
 import { PersistGate } from 'redux-persist/es/integration/react';
 import store,{persistor} from '@/store/index';
@@ -7,6 +9,7 @@ import '@/index.scss';
 import {Route, Switch,Link,BrowserRouter} from 'react-router-dom';
 import LoadableComponent from '@/load';
 import Routers from '@/routers/routers';
+// let vConsole = new VConsole()
 
 const Home = LoadableComponent(() => import('@/pages/home/home'));
 const User = LoadableComponent(() => import('@/pages/user/user'));

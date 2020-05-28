@@ -1,6 +1,5 @@
 const path = require('path');
 const fs = require('fs');
-const webpackMerge = require('webpack-merge');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const appDir = fs.realpathSync(process.cwd());
@@ -18,7 +17,7 @@ module.exports = {
      },
      output: {
         path: path.join(__dirname, "dist"), // bundle生成(emit)到哪里
-        filename: "js/[name]_[chunkhash:8].js", // bundle生成文件的名称
+        filename: "js/[name]_[hash:8].js", // bundle生成文件的名称
         publicPath: '/'
     },
     module: {
@@ -28,9 +27,7 @@ module.exports = {
                 test: /\.js[x]?$/,
                 exclude: /node_modules/,
                 use: [
-                    {
-                        loader: 'babel-loader',
-                    },
+                    {loader: 'babel-loader'},
                     {loader: 'eslint-loader'}
                 ]
             },
@@ -39,6 +36,13 @@ module.exports = {
                 use: [
                     {loader: 'style-loader'},
                     {loader: 'css-loader',},
+                    {
+                        loader: 'px2rem-loader',
+                        options: {
+                            remUnit: 75,
+                            remPrecision: 8,
+                        } 
+                    },
                     {loader: 'sass-loader'}
                 ]
             },
@@ -65,11 +69,15 @@ module.exports = {
             },
         ]
     },
+    performance: {
+        hints:false,
+    },
     plugins: [
+        new CleanWebpackPlugin(),
         new HtmlWebpackPlugin({
-            template: './src/index.html'
+            template: path.join(__dirname, 'src/index.html'),
+            filename: 'index.html?v=[name]_[hash:8]'
         }),
-        new CleanWebpackPlugin()
     ],
     resolve: {
         extensions:['.js','.jsx','.json'],//自动解析确定的扩展
@@ -78,9 +86,11 @@ module.exports = {
         },
     },
     devServer: {
+        index: 'index.html',
         contentBase: './dist',
         port: 3001,
         historyApiFallback: true,
         writeToDisk: true,
+        hot: true,
     }
 }

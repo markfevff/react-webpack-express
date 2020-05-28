@@ -1,12 +1,12 @@
-import {UPDATE_USER_INFO_ID} from '../actionTypes/user';
+import {UPDATE_ORDER_INFO_ID} from '../actionTypes/order';
 
 const initState = {
-    id: 0,
+    id: 1,
 }
 
-export default function userInfo (state = initState,action = {}) {
+export default function orderInfo (state = initState,action = {}) {
     switch(action.type) {
-        case UPDATE_USER_INFO_ID: {
+        case UPDATE_ORDER_INFO_ID: {
             return {
                 ...state,
                 id: action.id

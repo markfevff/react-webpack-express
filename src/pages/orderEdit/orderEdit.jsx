@@ -1,9 +1,12 @@
 import React,{Component} from 'react';
+import {AuthCompoent} from '@/hoc/loadableComponent';
+import { connect } from 'react-redux';
 class OrderEdit extends Component {
     constructor(props) {
         super(props)
     }
     componentDidMount() {
+        console.log('OrderEdit-props:',this.props)
         console.log('location:',this.props.location)
         let search = this.props.location.search;
         let locationQuery = new URLSearchParams(search)
@@ -22,4 +25,12 @@ class OrderEdit extends Component {
         )
     }
 }
-export default OrderEdit;
+
+const mapStateToProps = state => {
+    return{
+        orderInfo: state.orderInfo
+    }
+}
+export default AuthCompoent(connect(mapStateToProps)(OrderEdit))
+
+// export default AuthCompoent(OrderEdit);
