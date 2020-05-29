@@ -7,6 +7,7 @@ react+webpack+express
 /routers文件为express的router文件存放位置 <br>
 /middleware文件为express的中间件,公共方法,请求方法等存放位置，包括request文件为封装的请求方法，utils文件为封装的公共方法 <br>
 /api文件为/routers文件里的api的接口方法 <br>
+.env文件是环境配置文件，其中.development.env是开发环境配置文件 .production.env是生产环境配置文件 <br>
 
 ```Bash
 npm init //初始化
