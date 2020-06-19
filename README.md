@@ -10,7 +10,7 @@ react+webpack+express
 .env文件是环境配置文件，其中.development.env是开发环境配置文件 .production.env是生产环境配置文件 <br>
 
 ```Bash
-npm init //初始化
+npm install //初始化
 npm run start:app //开发环境运行，该运行方式是express作web服务
 npm run build //打包
 npm run start:app:prod //生产环境运行 express作web服务
