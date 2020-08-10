@@ -1,8 +1,19 @@
-import {UPDATE_USER_INFO_ID_ASYNC} from '../actionTypes/user';
+import {SAVE_USER_INFO_ASYNC,SAVE_USER_INFO_BY_DOCTORID_ASYNC,SAVE_ROUTERS_ASYNC} from '../actionTypes/user';
 
-export const updateUserInfoId = (id) => {
+export const getUserInfoSync = (code) => {
     return{
-        type: UPDATE_USER_INFO_ID_ASYNC,
-        id: id
+        type: SAVE_USER_INFO_ASYNC,
+        code: code
+    }
+}
+export const updateUserInfoByDoctorIdSync = (doctorId) => {
+    return{
+        type: SAVE_USER_INFO_BY_DOCTORID_ASYNC,
+        doctorId: doctorId,
+    }
+}
+export const updateRoutersSync = () => {
+    return{
+        type: SAVE_ROUTERS_ASYNC,
     }
 }

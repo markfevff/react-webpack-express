@@ -21,16 +21,16 @@ class OrderEdit extends Component {
     }
     render() {
         return(
-            <div>order/edit</div>
+            <div>order/edit {this.props.userInfo.openid}</div>
         )
     }
 }
 
 const mapStateToProps = state => {
     return{
-        orderInfo: state.orderInfo
+        userInfo: state.userInfo
     }
 }
-export default AuthCompoent(connect(mapStateToProps)(OrderEdit))
+// export default AuthCompoent(connect(mapStateToProps)(OrderEdit))
 
-// export default AuthCompoent(OrderEdit);
+export default connect(mapStateToProps)(OrderEdit)

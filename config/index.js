@@ -1,5 +1,5 @@
 const { env } = process;
 module.exports = {
     PORT: env.PORT,
-    HMR: env.HMR === 'true'
+    HMR: env.HMR === 'true',
 }

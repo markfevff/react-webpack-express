@@ -19,7 +19,10 @@
         "window": "readonly",
         "document": "readonly",
         "URLSearchParams": "readonly",
-        "location": "readonly"
+        "location": "readonly",
+        "navigator": "readonly",
+        "history": "readonly",
+        "require": "readonly"
     },
     "rules": {
         "no-undef": "error",
